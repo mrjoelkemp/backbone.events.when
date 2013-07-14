@@ -20,5 +20,11 @@ html
 
       eventsObj.when('e3 e4', callback, this);
 
-      eventsObj.trigger('e3', { car: 3 });
-      eventsObj.trigger('e4', { far: 4 });
+      eventsObj.trigger('e3', { foo: 3 });
+      eventsObj.trigger('e4', { bar: 4 });
+
+      eventsObj.when('e5 e6 e7', callback, this);
+
+      eventsObj.trigger('e5', { foo: 5 });
+      eventsObj.trigger('e6', { bar: 6 });
+      eventsObj.trigger('e7', { car: 7 });
