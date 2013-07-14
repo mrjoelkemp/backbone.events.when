@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    script src="libs/underscore/underscore-min.js"
+    script src="libs/backbone/backbone-min.js"
+
+    script src="src/backbone.events.when.js"
+
+    javascript:
+      var eventsObj = _.extend({}, Backbone.Events);
+
+      function callback(data) {
+        console.log('Aggregated data', data);
+      }
+
+      eventsObj.when('e1', 'e2', callback, this);
+
+      eventsObj.trigger('e1', { foo: 1 });
+      eventsObj.trigger('e2', { bar: 2 });
+
+      eventsObj.when('e3 e4', callback, this);
+
+      eventsObj.trigger('e3', { car: 3 });
+      eventsObj.trigger('e4', { far: 4 });
