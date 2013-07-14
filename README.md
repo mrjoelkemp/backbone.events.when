@@ -11,7 +11,7 @@ Backbone's existing multi-event syntax only provides the capability to execute a
 
 `Backbone.on('e1 e2', callback, context)`
 
-If you want to execute a callback once **all** of the listed events have executed, you'll have to maintain that state in your application – keeping track of when each callback fires. This is fine for a really small number of events, but unwieldy for more than 2 events.
+If you want to execute a callback once **all** of the listed events have executed, you'll have to maintain that state in your application – keeping track of the events that have fired or how many times `callback` was executed. This is fine for a really small number of events, but unwieldy for more than 2 events.
 
 ### Solution
 
@@ -31,7 +31,7 @@ For example, if event `e1` was triggered with `{foo: 1}`, then `callback` would 
 
 ### Usage
 
-Though you can typically trigger events directly on the Backbone object (since it's mixed in with its events namespace on creation), to use `when`, you'll need to create a separate object that extends `Backbone.Events` – since it's not part of Backbone core.
+Though you can typically trigger events directly on the Backbone object (since it's mixed in with its events namespace on creation), to use `when`, you'll need to create a separate object that extends `Backbone.Events` – since `when` is not part of Backbone core.
 
 	var eventsObj = _.extend({}, Backbone.Events);
 	
