@@ -4,7 +4,8 @@
     <script src="libs/underscore/underscore-min.js"></script>
     <script src="libs/backbone/backbone-min.js"></script>
     <script src="src/backbone.events.when.js"></script>
-    <script type="text/javascript">var eventsObj = _.extend({}, Backbone.Events);
+    <script type="text/javascript">// var eventsObj = _.extend({}, Backbone.Events);
+      var eventsObj = Backbone;
       
       function callback(data) {
         console.log('Aggregated data', data);
@@ -23,7 +24,7 @@
       eventsObj.when('e5 e6 e7', callback, this);
       
       eventsObj.trigger('e5', { foo: 5 });
-      eventsObj.trigger('e6');
+      eventsObj.trigger('e6', { bar: 6 });
       eventsObj.trigger('e7', { car: 7 });</script>
   </head>
 </html>

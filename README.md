@@ -31,7 +31,8 @@ For example, if event `e1` was triggered with `{foo: 1}`, then `callback` would 
 
 ### Usage
 
-Though you can typically trigger events directly on the Backbone object (since it's mixed in with its events namespace on creation), to use `when`, you'll need to create a separate object that extends `Backbone.Events` – since `when` is not part of Backbone core.
+`when` is mixed into both Backbone.Events and Backbone itself. This means you can extend Backbone.Events into your own
+event aggregator and use `when` or you can call `when` directly on Backbone.
 
 	var eventsObj = _.extend({}, Backbone.Events);
 	
@@ -65,6 +66,19 @@ Though you can typically trigger events directly on the Backbone object (since i
     	e2: [{ bar: 2 }],
     	e3: [{ car: 5 }]
     }
+
+OR
+    
+    // Dummy callback to print the aggregated data
+    function callback(data) {
+        console.log('Aggregated data', data);
+    }
+     
+    // Individual events syntax
+    Backbone.when('e1', 'e2', callback, this);
+      
+    Backbone.trigger('e1', { foo: 1 });
+    Backbone.trigger('e2', { bar: 2 });
 
 ### License
 MIT

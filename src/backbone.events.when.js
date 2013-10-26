@@ -4,7 +4,7 @@
   // Supported syntaxes:
   // systemEvents.when('ev1', 'ev2', cb, this);
   // systemEvents.when('ev1 ev2', cb, this);
-  Backbone.Events.when = function () {
+  Backbone.Events.when = Backbone.when = function () {
     var args      = arguments,
         callback  = args[args.length - 2],
         context   = args[args.length - 1],
